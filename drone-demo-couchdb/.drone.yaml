@@ -1,0 +1,22 @@
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: test
+  image: couchdb:2.2
+  commands:
+  - sleep 15
+  - curl http://database:5984
+
+services:
+- name: database
+  image: couchdb:2.2
+  ports:
+  - 5984
+
+...
