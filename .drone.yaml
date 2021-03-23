@@ -6,6 +6,15 @@ pipeline:
       - npm test
   publish:
     image: plugins/docker
-    repo: drone/node-demo
-    secrets: [ docker_username, docker_password ]
-    dry_run: true # remove this to publish
+    settings:
+      username:
+        from_secret: u_docker
+      password: 
+        from_secret: p_docker
+      repo: ryannelson01/drone-node
+      auto_tag: true
+      dry_run: true 
+    
+    
+ 
+
